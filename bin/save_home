@@ -1,5 +1,19 @@
 #!/bin/bash
 
+usage(){
+    # display the number of argument given
+    echo $#
+    echo "Usage: $0 <source_directory> <destination_directory>"
+    echo "Example:"
+    echo "  $0 \${HOME}/ /media/\${USER}/12345-hard-drive/save_home"
+    echo "  $0 /home/frozar/ /media/frozar/16a69ead-2965-4a4e-a77c-f59283bc4b97/frozar_lmgc"
+}
+
+if [ $# != 2 ]; then
+    usage
+    exit -1
+fi    
+
 # --partial        keep partially transferred files
 # --progress       show progress during transfer
 # --verbose        increase verbosity
@@ -7,12 +21,12 @@
 # --delete-during  receiver deletes during the transfer
 # --force          force deletion of directories even if not empty
 # --times          preserve modification times
-# --copy-links     transform symlink into referent file/dir
+# --links          copy symlinks as symlinks
 # --safe-links     ignore symlinks that point outside the source tree
 # --xattrs         preserve extended attributes
 
-source_directory=/home/frozar/
-destination_directory=/media/frozar/16a69ead-2965-4a4e-a77c-f59283bc4b97/frozar_lmgc
+source_directory=$1
+destination_directory=$2
 
 rsync --partial \
       --progress \
@@ -21,7 +35,7 @@ rsync --partial \
       --delete-during \
       --force \
       --times \
-      --copy-links \
+      --links \
       --safe-links \
       --xattrs \
       --include=".ssh" \
