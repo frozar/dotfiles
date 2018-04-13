@@ -1,0 +1,13 @@
+[color]
+	ui = True
+[user]
+	email = fabien.rozar@gmail.com
+	name = frozar
+[push]
+	default = simple
+[diff]
+	tool = meld
+[credential]
+        helper = cache
+[alias]
+	ll = log --oneline --decorate --all --graph

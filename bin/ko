@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# usage(){
+#     # display the number of argument given
+#     echo $#
+# }
+
+toclean='*~'
+
+rm -f $(find . -type f -name "*~")

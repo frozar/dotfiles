@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# --partial        keep partially transferred files
+# --progress       show progress during transfer
+# --verbose        increase verbosity
+# --recursive      recurse into directories
+# --delete-during  receiver deletes during the transfer
+# --force          force deletion of directories even if not empty
+# --times          preserve modification times
+# --copy-links     transform symlink into referent file/dir
+# --safe-links     ignore symlinks that point outside the source tree
+# --xattrs         preserve extended attributes
+
+source_directory=/home/frozar/
+destination_directory=/media/frozar/16a69ead-2965-4a4e-a77c-f59283bc4b97/frozar_lmgc
+
+rsync --partial \
+      --progress \
+      --verbose \
+      --recursive \
+      --delete-during \
+      --force \
+      --times \
+      --copy-links \
+      --safe-links \
+      --xattrs \
+      --include=".ssh" \
+      --exclude="*~" \
+      --exclude=".*" \
+      --exclude="examples.desktop" \
+      --exclude="hs_err*" \
+      ${source_directory} ${destination_directory}
