@@ -1,0 +1,3 @@
+[submodule "emacs.d/rust-mode"]
+	path = emacs.d/rust-mode
+	url = git@github.com:rust-lang/rust-mode.git
