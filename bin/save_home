@@ -1,8 +1,6 @@
 #!/bin/bash
 
 usage(){
-    # display the number of argument given
-    echo $#
     echo "Usage: $0 <source_directory> <destination_directory>"
     echo "Example:"
     echo "  $0 \${HOME}/ /media/\${USER}/12345-hard-drive/save_home"
