@@ -23,8 +23,15 @@ fi
 # --safe-links     ignore symlinks that point outside the source tree
 # --xattrs         preserve extended attributes
 
-source_directory=$1
-destination_directory=$2
+# Keep the final "/" if any
+source_directory=$(readlink -f "$(eval "echo ${1}")")
+if [ $(echo ${1} | grep /$) ]; then
+    source_directory="${source_directory}/"
+fi
+destination_directory=$(readlink -f "$(eval "echo ${2}")")
+
+# echo "source_directory : ${source_directory}"
+# echo "destination_directory : ${destination_directory}"
 
 rsync --partial \
       --progress \
@@ -41,4 +48,4 @@ rsync --partial \
       --exclude=".*" \
       --exclude="examples.desktop" \
       --exclude="hs_err*" \
-      ${source_directory} ${destination_directory}
+      "${source_directory}" "${destination_directory}"
