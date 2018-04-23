@@ -114,8 +114,8 @@ alias top="top -d 0,5 -H"
 alias htop="htop -d 1,5"
 
 # Enable/disable proxy connexion through jumbox
-alias tunnel_ssh_toggle='if [ "$(ps -ef | grep ssh | grep jumpbox | awk '\''{$1=$1};1'\'' | cut -d" " -f2)" == "" ] ; then echo "LAUNCH ssh tunnel via jumpbox" ; (ssh -N -q -D 8009 jumpbox &) ; else echo "EXIT jumpbox ssh tunnel" ; kill $(ps -ef | grep ssh | grep jumpbox | awk '\''{$1=$1};1'\'' | cut -d" " -f2) ; fi'
-alias tunnel_ssh_status='if [ "$(ps -ef | grep ssh | grep jumpbox | awk '\''{$1=$1};1'\'' | cut -d" " -f2)" == "" ] ; then echo "tunnel: DISABLE" ; else echo "tunnel: ENABLE" ; fi'
+alias tunnel_ssh_toggle='if [ "$(ps -ef | grep ssh | grep jumpbox | grep "\-D 8009" | awk '\''{$1=$1};1'\'' | cut -d" " -f2)" == "" ] ; then echo "LAUNCH ssh tunnel via jumpbox" ; (ssh -N -q -D 8009 jumpbox &) ; else echo "EXIT jumpbox ssh tunnel" ; kill $(ps -ef | grep ssh | grep jumpbox | grep "\-D 8009" | awk '\''{$1=$1};1'\'' | cut -d" " -f2) ; fi'
+alias tunnel_ssh_status='if [ "$(ps -ef | grep ssh | grep jumpbox | grep "\-D 8009" | awk '\''{$1=$1};1'\'' | cut -d" " -f2)" == "" ] ; then echo "tunnel: DISABLE" ; else echo "tunnel: ENABLE" ; fi'
 
 
 # Update soler docker : dockersegmentation:v1
