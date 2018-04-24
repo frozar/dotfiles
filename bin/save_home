@@ -44,6 +44,9 @@ rsync --partial \
       --safe-links \
       --xattrs \
       --include=".ssh" \
+      --include=".git" \
+      --include=".gitignore" \
+      --include=".gitmodules" \
       --exclude="*~" \
       --exclude=".*" \
       --exclude="examples.desktop" \
