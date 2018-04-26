@@ -47,6 +47,7 @@ rsync --partial \
       --include=".git" \
       --include=".gitignore" \
       --include=".gitmodules" \
+      --include=".vscode" \
       --exclude="*~" \
       --exclude=".*" \
       --exclude="examples.desktop" \
